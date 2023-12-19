@@ -1,0 +1,5 @@
+staticDirs:
+  - source: /static
+    headers:
+      - key: Content-Type
+        value: application/javascript
