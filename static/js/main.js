@@ -1,21 +1,4 @@
 
-var now = new Date().getTime();
-var stepTime = localStorage.getItem('stepTime');
-
-
-if (stepTime == null){
-    localStorage.setItem('stepTime',now);
-
-}
-else{
-    if (now -stepTime>hours*60*60*1000){
-        localStorage.clear();
-        localStorage.setItem('stepTime',now);
-
-    }
-}
-
-
 var orders = JSON.parse(localStorage.getItem('orders'));
 var total = localStorage.getItem('total');
 
@@ -33,5 +16,4 @@ if (total === null || total === undefined){
     orders = JSON.parse(localStorage.getItem('total'));
     
 }
-var cart = document.querySelector('#cartt');
-    cart.innerHTML = orders.length;
+
