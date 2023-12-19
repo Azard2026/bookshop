@@ -83,7 +83,7 @@ WSGI_APPLICATION = 'bookshop.wsgi.application'
 #     }
 # }
 DATABASES={
-    "default":dj_database_url.parse("postgres://bookshop_utdp_user:VIqnf05XuuPVClJxZltdE0JohISSgh1V@dpg-cm0nf9un7f5s73c9541g-a.oregon-postgres.render.com/bookshop_utdp")
+    "default":dj_database_url.parse(os.environ.get("DATABASE_URL"))
 }
 # DATABASES['default'] = dj_database_url.parse("postgres://bookshop_utdp_user:VIqnf05XuuPVClJxZltdE0JohISSgh1V@dpg-cm0nf9un7f5s73c9541g-a.oregon-postgres.render.com/bookshop_utdp")
 
