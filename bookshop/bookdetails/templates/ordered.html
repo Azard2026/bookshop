@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+
+{% block title %}order details{% endblock %}
+{% block nav %}
+{% if user %}
+{{user}}
+{% endif %}
+{% endblock %}
+{% block bar %}
+ {% if user %}<li class="nav-item  mt-3">
+ <a class="nav-link btn btn-primary " href="{% url 'clear_session' %}">Logout
+</a></li>
+ {% else %}
+ <li class="nav-item  mt-3">
+ <a class="nav-link btn btn-primary " href="{% url 'login' %}">Login
+</a>
+</li>
+{% endif %}
+{% endblock %}
+{% block content %}
+    <main>
+        <h3 class="userorder">Ordered Items By {{user}}</h3>
+        <content>
+            <div class="titleorder">
+                <h6>Book-Name</h6>
+                <h6>Quantity</h6>
+                <h6>Price</h6>
+                
+            </div>
+
+            <div class="orderitem">
+                {% for item in items %}
+                <li>
+                    <p style="width:75px;">{{item.book_names}}</p>
+                    <P>{{item.qty}}</p>
+                        <p>{{item.price}}.00</p>
+                
+                </li>
+
+                {% endfor %}
+                
+            </div>
+            
+        </content>
+        <div class="pricetag">
+            <h6>Total: Rs: {{items.0.totalprice}}.00</h6>
+            <h6>Address- {{items.0.address}}</h6>
+        </div>
+
+    </main>
+
+
+{% endblock %}
