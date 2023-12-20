@@ -1,4 +1,10 @@
-
+var orders = JSON.parse(localStorage.getItem('orders'));
+var user=document.querySelector('#user').value;
+if (user=="AnonymousUser"){
+    alert("please login first then only add the books in your cart ");
+    window.location.href = '../userlogin';
+}
+console.log(user);
 
 
 var names = document.querySelector("#name");
