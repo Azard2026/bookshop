@@ -82,11 +82,21 @@ WSGI_APPLICATION = 'bookshop.wsgi.application'
 #         'NAME': BASE_DIR / 'db.sqlite3',
 #     }
 # }
-DATABASES={
-    "default":dj_database_url.parse("postgres://bookshop_utdp_user:VIqnf05XuuPVClJxZltdE0JohISSgh1V@dpg-cm0nf9un7f5s73c9541g-a.oregon-postgres.render.com/bookshop_utdp")
-}
+# DATABASES={
+#     "default":dj_database_url.parse("postgres://bookshop_utdp_user:VIqnf05XuuPVClJxZltdE0JohISSgh1V@dpg-cm0nf9un7f5s73c9541g-a.oregon-postgres.render.com/bookshop_utdp")
+# }
 # DATABASES['default'] = dj_database_url.parse("postgres://bookshop_utdp_user:VIqnf05XuuPVClJxZltdE0JohISSgh1V@dpg-cm0nf9un7f5s73c9541g-a.oregon-postgres.render.com/bookshop_utdp")
-
+DATABASES = {
+    'default': {
+        #'ENGINE': 'django.db.backends.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'dpg-cm0nf9un7f5s73c9541g-a',
+        'USER': 'bookshop_utdp_user',
+        'PASSWORD': 'VIqnf05XuuPVClJxZltdE0JohISSgh1V',
+        'HOST': 'dpg-cm0nf9un7f5s73c9541g-a',
+        'PORT': '5432',
+    }
+}
 
 
 
