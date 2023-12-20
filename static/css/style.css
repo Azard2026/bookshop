@@ -112,7 +112,7 @@
     font-weight: bold;
 }
 .image-text {
-    background-image:  url('../img/t.jpg');
+    background-image:  url('/static/img/t.jpg');
     background-clip: text;
     color:transparent;
     text-align: center;
