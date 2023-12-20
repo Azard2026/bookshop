@@ -266,6 +266,60 @@ function removeItem(n)
 
 
 
+/// ajax method to get the data
+ 
+var notes = document.querySelector('#Address');
+var orders = JSON.parse(localStorage.getItem('orders'));
+function order()
+
+{  
+    
+   const dataToSend={
+    msg : notes.value,
+    orders : orders,
+    total : localStorage.getItem('total'),
+   }
+   fetch('/placeorder/', {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json',
+        'X-CSRFToken': getCookie('csrftoken'),  // Include CSRF token for protection
+    },
+    body: JSON.stringify(dataToSend),
+})
+.then(response => response.json())
+.then(data => {
+    console.log('Success:', data);
+    window.location.href = '../order';
+    localStorage.setItem('orders', JSON.stringify([]));
+    localStorage.setItem('total', 0);
+
+})
+.catch(error => {
+    console.error('Error:', error);
+});
+
+// Function to get CSRF token from cookies
+function getCookie(name) {
+    let cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+        const cookies = document.cookie.split(';');
+        for (let i = 0; i < cookies.length; i++) {
+            const cookie = cookies[i].trim();
+            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
+}
+   
+   }
+
+
+
+
 
     </script>
 {% endblock %}
