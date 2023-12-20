@@ -48,7 +48,7 @@
 </main>
 {% block script %}
 {% load static %}
-    <script type="text/JavaScript">
+    <script type="text/JavaScript" defer>
      var orders = JSON.parse(localStorage.getItem('orders'));
 var user=document.querySelector('#user').value;
 if (user=="AnonymousUser"){
