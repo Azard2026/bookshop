@@ -104,7 +104,7 @@ def order(request):
             price=[]
             for i in range(len(books)):
                 mybook.append(books[i][0])
-                qty.append(books[i][1])
+                qty.append(int(books[i][3])//int(books[i][2]))
                 price.append(int(books[i][2]))
             for a,b,c in zip(mybook,qty,price):
 
