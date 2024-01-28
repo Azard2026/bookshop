@@ -104,8 +104,8 @@ def order(request):
             price=[]
             for i in range(len(books)):
                 mybook.append(books[i][0])
-                qty.append(int(books[i][1]))
-                price.append(int(books[i][3]))
+                qty.append(int(books[i][2])//int(books[i][3]))
+                price.append(int(books[i][2]))
             for a,b,c in zip(mybook,qty,price):
 
                 item=ordereditem(username=username,book_names=a,qty=b,price=c,totalprice=tot,address=add)
